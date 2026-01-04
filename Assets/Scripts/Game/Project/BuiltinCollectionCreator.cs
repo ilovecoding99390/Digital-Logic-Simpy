@@ -54,6 +54,10 @@ namespace DLS.Game
 				),
 				CreateChipCollection("MEMORY",
 					ChipType.Rom_256x16
+				),
+				CreateChipCollection("Python",
+					ChipType.Py_In,
+					ChipType.Py_Out
 				)
 			};
 		}

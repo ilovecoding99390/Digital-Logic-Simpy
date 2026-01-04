@@ -51,10 +51,31 @@ namespace DLS.Game
 				CreateBus(PinBitCount.Bit8),
 				CreateBusTerminus(PinBitCount.Bit8),
 				// ---- Audio ----
-				CreateBuzzer()
+				CreateBuzzer(),
+				// ---- Python ----
+
+				
 			};
 		}
-
+		static ChipDescription CreatePyIn(){
+			PinDescription[] outputPins = {
+				CreatePinDescription("Out 1", 0, PinBitCount.Bit8),
+				CreatePinDescription("Out 2", 1, PinBitCount.Bit8),
+				CreatePinDescription("Signal",1)};
+			Color col = new(0.294f, 0.545f, 0.745f);
+			Vector2 size = new(CalculateGridSnappedWidth(GridSize * 8), SubChipInstance.MinChipHeightForPins(null,outputPins));
+			return CreateBuiltinChipDescription(ChipType.Py_In, size, col, null, outputPins)
+		}
+		static ChipDescription CreatePyOut(){
+			PinDescription[] inputPins = {
+			CreatePinDescription("In 1", 0, PinBitCount.Bit8),
+			CreatePinDescription("In 2", 1, PinBitCount.Bit8)
+			,CreatePinDescription("Send",2)
+			};
+			Color col = new(1f, 0.831f, 0.231f);
+			Vector2 size = new(CalculateGridSnappedWidth(GridSize * 8), SubChipInstance.MinChipHeightForPins(inputPins,null));
+			return CreateBuiltinChipDescription(ChipType.Py_Out, size, col, inputPins, null);
+		}
 		static ChipDescription CreateNand()
 		{
 			Color col = new(0.73f, 0.26f, 0.26f);

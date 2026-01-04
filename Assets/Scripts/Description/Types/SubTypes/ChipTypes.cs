@@ -38,6 +38,8 @@ namespace DLS.Description
 
 		Key,
 
+		Py_In,
+		Py_Out,
 		// ---- Buses ----
 		Bus_1Bit,
 		BusTerminus_1Bit,
@@ -48,6 +50,7 @@ namespace DLS.Description
 		
 		// ---- Audio ----
 		Buzzer
+		
 
 	}
 }
